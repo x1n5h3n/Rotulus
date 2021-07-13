@@ -67,7 +67,7 @@ A Rotulus database configuration example file is at `conf/rotulus.yml`.
 
 Modify it to fit your database configuration and, copy it where you want to store it.
 
-Then you have to create an environment variable name `ROTULUS_CONF_PATH` with the file path as value.
+Then you have to create an environment variable named `ROTULUS_CONF_PATH` with the file path as value.
 
 ## Usage
 
@@ -91,6 +91,8 @@ rotulus database -d drop
 ```bash
 rotulus database -d reset
 ```
+
+It's like making a drop and a create (`python3 database.py -d drop && python3 database.py -d create`).
 
 ### Seeding
 
@@ -131,12 +133,10 @@ rotulus seeder -f dbleak_with_hashed_passwords.txt -s : -a
 ```
 Using a modified version of [hashID](https://github.com/psypanda/hashID) it'll identify for you the type of hash used. **Without a 100% accuracy**.
 
-- Insert data from one file with `:` separator and hashed password without knowing the type of hash
+- Insert data from one file with `:` separator and md5 hashed passwords
 ```bash
 rotulus seeder -f dbleak_with_hashed_passwords.txt -s : -c md5
 ```
-
-It's like making a drop and a create (`python3 database.py -d drop && python3 database.py -d create`).
 
 ### Query
 
@@ -192,6 +192,7 @@ If md5 password compute from the second leak is found in the first one, you will
 ## Coming soon ...
 
 - [ ] Database migration
+- [ ] API
 - [ ] Rotulus frontend
 - [ ] Cracking passwords autonomously
 
